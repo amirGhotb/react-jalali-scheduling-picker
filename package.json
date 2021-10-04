@@ -1,0 +1,14 @@
+{
+  "name": "react-jalali-scheduling-picker",
+  "version": "1.0.0",
+  "description": "jalali date scheduling picker",
+  "main": "index.js",
+  "repository": "https://github.com/amirGhotb/react-jalali-scheduling-picker",
+  "author": "amirghotb",
+  "license": "MIT",
+  "dependencies": {
+    "moment-jalaali": "^0.9.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
