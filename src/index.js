@@ -9,12 +9,15 @@ export default function SchedulingPicker({
   startTime = { hour: 8, minute: 0 },
   endTime = { hour: 16, minute: 0 },
   visitMinutes = 20,
-  exceptDay = [],
-  exceptTime = [],
+  exceptDays = [],
+  exceptTimes = [],
   onChange,
   show = true,
   setShow,
   holidays = [],
+  redHelp = 'تعطیل رسمی',
+  grayHelp = 'نوبت‌دهی در روز مشخص شده به حد نصاب رسیده است',
+  greenHelp = 'امروز'
 }) {
   moment.locale('fa')
   moment.loadPersian()
@@ -59,22 +62,17 @@ export default function SchedulingPicker({
       setShowTimePicker(true)
     }
   }, [selectedDate])
-  console.log(selectedDate?.jDate())
-  console.log(now.date?.jDate(), 'now')
 
   function checkExceptTime(time) {
     return (
-      exceptTime.filter(
+      exceptTimes.filter(
         (item) => item.hour === time.hour && item.minute === time.minute
       ).length > 0
     )
   }
 
   return (
-    <div
-      className={`${styles.modal} ${show ? styles.block : styles.hide}`}
-      dir='rtl'
-    >
+    <div className={`${styles.modal} ${show ? styles.block : styles.hide}`}>
       <section className={styles.modalMain}>
         <div
           className={`${styles.page} ${showDatePicker ? styles.show : null}`}
@@ -141,12 +139,25 @@ export default function SchedulingPicker({
                                   m.jDate(now.date.jDate())
                                   setSelectedDate(m)
                                 }}
-                                disabled={exceptDay.includes(day)}
+                                disabled={exceptDays.includes(day)}
                                 className={`${styles.btn} ${styles.btnDate} ${
                                   indexDay === 6 || holidays.includes(day)
                                     ? styles.holiday
                                     : ''
-                                } ${(now.date.jYear()+'-'+now.date.jMonth()+'-'+day) ===(today.jYear()+'-'+today.jMonth()+'-'+today.jDate()) ? styles.btnSuccess :''}`}
+                                } ${
+                                  now.date.jYear() +
+                                    '-' +
+                                    now.date.jMonth() +
+                                    '-' +
+                                    day ===
+                                  today.jYear() +
+                                    '-' +
+                                    today.jMonth() +
+                                    '-' +
+                                    today.jDate()
+                                    ? styles.btnSuccess
+                                    : ''
+                                }`}
                               >
                                 {day}
                               </button>
@@ -163,11 +174,15 @@ export default function SchedulingPicker({
           <div className={styles.helpBox}>
             <div className={styles.helpText}>
               <div className={`${styles.circle} ${styles.circleExcept}`} />
-              <p>نوبت‌دهی در روز مشخص شده به حد نصاب رسیده است</p>
+              <p>{grayHelp}</p>
             </div>
             <div className={styles.helpText}>
               <div className={`${styles.circle} ${styles.circleHoliday}`} />
-              <p>تعطیل رسمی</p>
+              <p>{redHelp}</p>
+            </div>
+            <div className={styles.helpText}>
+              <div className={`${styles.circle} ${styles.circleToday}`} />
+              <p>{greenHelp}</p>
             </div>
           </div>
         </div>
@@ -235,7 +250,6 @@ export default function SchedulingPicker({
             </div>
           </div>
         </div>
-        ;
       </section>
     </div>
   )

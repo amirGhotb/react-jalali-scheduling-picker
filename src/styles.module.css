@@ -170,3 +170,6 @@ body {
 .helpBox .helpText .circleHoliday {
   background-color: #d63031;
 }
+.helpBox .helpText .circleToday {
+  background-color: #26de81;
+}

@@ -22,10 +22,10 @@ const App = () => {
     <SchedulingPicker show={show}
                       setShow={setShow}
                       onChange={(v)=>setValue(v)}
-                      exceptDay={[3,4,5]}
+                      exceptDays={[3,4,5]}
                       visitMinutes={15}
                       holidays={[13]}
-                      exceptTime={[{hour:8,minute:20}]}
+                      exceptTimes={[{hour:8,minute:20}]}
                       startTime={{hour:9,minute:30}}
                       endTime={{hour:16,minute:30}}
     />

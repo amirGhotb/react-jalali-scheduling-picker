@@ -26,9 +26,19 @@ function App() {
   const [show,setShow] = useState(true)
   return (
     <div className="App">
-        <SchedulingPicker show={show} setShow={setShow} exceptDay={[2,10]} exceptTime={[{hour:12,minute:50}]} holidays={[3]} startTime={{hour:9,minute:30}} endTime={{hour:16,minute:0}} visitMinutes={10} onChange={(v)=>{
-            console.log(v)
-        }}/>
+      <SchedulingPicker show={show}
+                        setShow={setShow}
+                        onChange={(v)=>setValue(v)}
+                        exceptDays={[3,4,5]}
+                        visitMinutes={15}
+                        holidays={[13]}
+                        exceptTimes={[{hour:8,minute:20}]}
+                        startTime={{hour:9,minute:30}}
+                        endTime={{hour:16,minute:30}}
+                        onChange={(v)=>{
+                          console.log(v)
+                        }}
+      />
     </div>
   );
 }
@@ -39,41 +49,53 @@ export default App;
 
  - **show** : boolean
 
-	 show modal state
-- **setShow** : function
-	 
-	 set show state for close modal in component
-	 
-- **startTime** : object {hour:?,minute:?}
-	 
-	 start time in select time section
-	 
-- **endTime** : object {hour:?,minute:?}
-	
-	 end time in select time section
-	 
-- **visitMinutes** : int
-	 
-	 The interval between times in select time section
-	 
-- **holidays** : array
-	 
-	 holidays	 in month
-	 
-- **exceptDay** : array
-	 
-	 days that are not allowed to choose
-	 
-- **exceptTime** : array
-	 
-	 times that are not allowed to choose
+   show modal state
+ - **setShow** : function
 
-- **onChange** : function (v)
-	 
-	 selected date and time
-   
-   v is [moment-jalaali](https://github.com/jalaali/moment-jalaali) type
-	 
+    set show state for close modal in component
+
+ - **startTime** : object {hour:?,minute:?}
+
+    start time in select time section
+
+ - **endTime** : object {hour:?,minute:?}
+
+    end time in select time section
+
+ - **visitMinutes** : int
+
+    The interval between times in select time section
+
+ - **holidays** : array
+
+    holidays	 in month
+
+ - **exceptDay** : array
+
+    days that are not allowed to choose
+
+ - **exceptTime** : array
+
+    times that are not allowed to choose
+
+ - **redHelp** : text
+
+   help text for holiday
+
+ - **grayHelp** : text
+
+   help text for excepted days
+
+- **greenHelp** : text
+
+  help text for today
+
+ - **onChange** : function (v)
+
+    selected date and time
+
+    v is [moment-jalaali](https://github.com/jalaali/moment-jalaali) type
+
 ## License
 
 MIT © [amirGhotb](https://github.com/amirGhotb)
