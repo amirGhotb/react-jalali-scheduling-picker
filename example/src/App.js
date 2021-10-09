@@ -28,6 +28,9 @@ const App = () => {
                       exceptTimes={[{hour:8,minute:20}]}
                       startTime={{hour:9,minute:30}}
                       endTime={{hour:16,minute:30}}
+                      onChangeMonth={(month)=>{
+                        console.log(month)
+                      }}
     />
   </div>
 }

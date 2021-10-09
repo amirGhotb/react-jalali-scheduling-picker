@@ -11,13 +11,14 @@ export default function SchedulingPicker({
   visitMinutes = 20,
   exceptDays = [],
   exceptTimes = [],
-  onChange,
+  onChange = () => {},
   show = true,
   setShow,
   holidays = [],
   redHelp = 'تعطیل رسمی',
   grayHelp = 'نوبت‌دهی در روز مشخص شده به حد نصاب رسیده است',
-  greenHelp = 'امروز'
+  greenHelp = 'امروز',
+  onChangeMonth = () => {}
 }) {
   moment.locale('fa')
   moment.loadPersian()
@@ -70,6 +71,10 @@ export default function SchedulingPicker({
       ).length > 0
     )
   }
+
+  useEffect(() => {
+    onChangeMonth(now.date.jMonth())
+  }, [now])
 
   return (
     <div className={`${styles.modal} ${show ? styles.block : styles.hide}`}>

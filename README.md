@@ -35,8 +35,8 @@ function App() {
                         exceptTimes={[{hour:8,minute:20}]}
                         startTime={{hour:9,minute:30}}
                         endTime={{hour:16,minute:30}}
-                        onChange={(v)=>{
-                          console.log(v)
+                        onChangeMonth={(month)=>{
+                          console.log(month)
                         }}
       />
     </div>
@@ -86,15 +86,21 @@ export default App;
 
    help text for excepted days
 
-- **greenHelp** : text
+ - **greenHelp** : text
 
-  help text for today
+   help text for today
 
  - **onChange** : function (v)
 
     selected date and time
 
-    v is [moment-jalaali](https://github.com/jalaali/moment-jalaali) type
+    v type is [moment-jalaali](https://github.com/jalaali/moment-jalaali)
+
+ - **onChangeMonth** : function (month)
+
+    when month change in date picker section (for change holiday props)
+
+    month type is integer
 
 ## License
 
