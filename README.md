@@ -71,6 +71,7 @@ export default App;
 - **onChange** : function (v)
 	 
 	 selected date and time
+   
    v is [moment-jalaali](https://github.com/jalaali/moment-jalaali) type
 	 
 ## License
