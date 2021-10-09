@@ -9,6 +9,7 @@ body {
   border: 1px solid #b2bec3;
   background-color: #fff;
   padding: 0.5rem;
+  text-align: center;
 }
 .btn:hover {
   cursor: pointer;
