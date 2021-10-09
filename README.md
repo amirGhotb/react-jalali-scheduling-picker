@@ -28,7 +28,9 @@ function App() {
     <div className="App">
       <SchedulingPicker show={show}
                         setShow={setShow}
-                        onChange={(v)=>setValue(v)}
+                        onChange={(v)=> {
+                          console.log(v)
+                        }}
                         exceptDays={[3,4,5]}
                         visitMinutes={15}
                         holidays={[13]}
