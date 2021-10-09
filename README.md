@@ -4,10 +4,8 @@
 > jalali scheduling picker for react js
 
 
-
-![alt text](https://github.com/amirGhotb/react-jalali-scheduling-picker/blob/main/screenShots/Capture.PNG?raw=true)
-
-![alt text](https://github.com/amirGhotb/react-jalali-scheduling-picker/blob/main/screenShots/2.PNG?raw=true)
+<img src="https://github.com/amirGhotb/react-jalali-scheduling-picker/blob/main/screenShots/1.PNG?raw=true"  height="300" />
+<img src="https://github.com/amirGhotb/react-jalali-scheduling-picker/blob/main/screenShots/2.PNG?raw=true"  height="200" />
 
 [![NPM](https://img.shields.io/npm/v/react-jalali-scheduling-picker.svg)](https://www.npmjs.com/package/react-jalali-scheduling-picker) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
