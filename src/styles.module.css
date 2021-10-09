@@ -182,3 +182,7 @@ body {
 .helpBox .helpText .circleToday {
   background-color: #26de81;
 }
+
+.tableBox{
+  padding : 1rem
+}

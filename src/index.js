@@ -114,7 +114,7 @@ export default function SchedulingPicker({
               انصراف
             </a>
           </div>
-          <div>
+          <div className={styles.tableBox}>
             <table className={styles.dateTable}>
               <thead>
                 <tr>
