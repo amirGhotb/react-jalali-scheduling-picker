@@ -26,7 +26,9 @@ function App() {
   const [show,setShow] = useState(true)
   return (
     <div className="App">
-        <SchedulingPicker show={show} setShow={setShow} exceptDay={[2,10]} exceptTime={[{hour:12,minute:50}]} holidays={[3]} startTime={{hour:9,minute:30}} endTime={{hour:16,minute:0}} visitMinutes={10} />
+        <SchedulingPicker show={show} setShow={setShow} exceptDay={[2,10]} exceptTime={[{hour:12,minute:50}]} holidays={[3]} startTime={{hour:9,minute:30}} endTime={{hour:16,minute:0}} visitMinutes={10} onChange={(v)=>{
+            console.log(v)
+        }}/>
     </div>
   );
 }
@@ -65,6 +67,11 @@ export default App;
 - **exceptTime** : array
 	 
 	 times that are not allowed to choose
+
+- **onChange** : function (v)
+	 
+	 selected date and time
+   v is [moment-jalaali](https://github.com/jalaali/moment-jalaali) type
 	 
 ## License
 
