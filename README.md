@@ -1,6 +1,13 @@
+
 # react-jalali-scheduling-picker
 
 > jalali scheduling picker for react js
+
+
+
+![alt text](https://github.com/amirGhotb/react-jalali-scheduling-picker/blob/main/screenShots/Capture.PNG?raw=true)
+
+![alt text](https://github.com/amirGhotb/react-jalali-scheduling-picker/blob/main/screenShots/2.PNG?raw=true)
 
 [![NPM](https://img.shields.io/npm/v/react-jalali-scheduling-picker.svg)](https://www.npmjs.com/package/react-jalali-scheduling-picker) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -8,23 +15,59 @@
 
 ```bash
 npm install --save react-jalali-scheduling-picker
+yarn add react-jalali-scheduling-picker
 ```
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'react-jalali-scheduling-picker'
-import 'react-jalali-scheduling-picker/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+import React,{useState} from "react";
+import SchedulingPicker from "react-jalali-scheduling-picker";
+import  'react-jalali-scheduling-picker/dist/index.css';
+function App() {
+  const [show,setShow] = useState(true)
+  return (
+    <div className="App">
+        <SchedulingPicker show={show} setShow={setShow} exceptDay={[2,10]} exceptTime={[{hour:12,minute:50}]} holidays={[3]} startTime={{hour:9,minute:30}} endTime={{hour:16,minute:0}} visitMinutes={10} />
+    </div>
+  );
 }
-```
 
+export default App;
+```
+## Props
+
+ - **show** : boolean
+
+	 show modal state
+- **setShow** : function
+	 
+	 set show state for close modal in component
+	 
+- **startTime** : object {hour:?,minute:?}
+	 
+	 start time in select time section
+	 
+- **endTime** : object {hour:?,minute:?}
+	
+	 end time in select time section
+	 
+- **visitMinutes** : int
+	 
+	 The interval between times in select time section
+	 
+- **holidays** : array
+	 
+	 holidays	 in month
+	 
+- **exceptDay** : array
+	 
+	 days that are not allowed to choose
+	 
+- **exceptTime** : array
+	 
+	 times that are not allowed to choose
+	 
 ## License
 
 MIT © [amirGhotb](https://github.com/amirGhotb)
