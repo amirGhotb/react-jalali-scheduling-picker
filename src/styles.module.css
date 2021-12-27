@@ -1,7 +1,6 @@
 @import "fonts/font-face-FD.css";
 body {
   font-family: Vazir FD, "Vazir FD", serif !important;
-  color:black;
 }
 .btn {
   border-radius: 2rem;

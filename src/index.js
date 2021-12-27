@@ -18,7 +18,9 @@ export default function SchedulingPicker({
   redHelp = 'تعطیل رسمی',
   grayHelp = 'نوبت‌دهی در روز مشخص شده به حد نصاب رسیده است',
   greenHelp = 'امروز',
-  onChangeMonth = () => {}
+  onChangeMonth = () => {},
+  exceptFromDate = null,
+  exceptToDate = null
 }) {
   moment.locale('fa')
   moment.loadPersian()
@@ -75,6 +77,23 @@ export default function SchedulingPicker({
   useEffect(() => {
     onChangeMonth(now.date.jMonth())
   }, [now])
+
+  function handleDisable(day) {
+    const disableToDate = moment(exceptToDate, 'jYYYY/jMM/jDD').locale('fa')
+    const disableFromDate = moment(exceptFromDate, 'jYYYY/jMM/jDD').locale('fa')
+    const date = moment(
+      now.date.jYear() + '/' + (now.date.jMonth() + 1) + '/' + day,
+      'jYYYY/jMM/jDD'
+    ).locale('fa')
+    let flag = false
+    if (!flag && disableToDate.isValid()) {
+      flag = date < disableToDate
+    }
+    if (!flag && disableFromDate.isValid()) {
+      flag = date > disableFromDate
+    }
+    return exceptDays.includes(day) || flag
+  }
 
   return (
     <div className={`${styles.modal} ${show ? styles.block : styles.hide}`}>
@@ -144,7 +163,7 @@ export default function SchedulingPicker({
                                   m.jDate(now.date.jDate())
                                   setSelectedDate(m)
                                 }}
-                                disabled={exceptDays.includes(day)}
+                                disabled={handleDisable(day)}
                                 className={`${styles.btn} ${styles.btnDate} ${
                                   indexDay === 6 || holidays.includes(day)
                                     ? styles.holiday
