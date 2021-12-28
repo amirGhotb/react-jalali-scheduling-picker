@@ -35,7 +35,6 @@ export default function SchedulingPicker({
   const [today] = useState(moment().locale('fa'))
   useEffect(() => {
     const monthDays = moment.jDaysInMonth(now.date.jYear(), now.date.jMonth())
-    now.date.format('jYYYY-jMM-jDD')
     const date = now.date
     let weekCount = 0
     const weekArr = [[null, null, null, null, null, null]]
@@ -165,7 +164,7 @@ export default function SchedulingPicker({
                                   now.date.jDate(day)
                                   const m = moment().locale('fa')
                                   m.jYear(now.date.jYear())
-                                  m.jMonth(now.date.jMonth() + 1)
+                                  m.jMonth(now.date.jMonth())
                                   m.jDate(now.date.jDate())
                                   setSelectedDate(m)
                                 }}

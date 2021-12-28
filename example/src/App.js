@@ -14,14 +14,17 @@ const App = () => {
     {
       value && <> <p>
         تاریخ شمسی:
-        <span>{value.jYear()+'/'+value.jMonth()+'/'+value.jDate()}</span>
+        <span>{value.format('jYYYY-jMM-jDD')}</span>
       </p>
       </>
     }
 
     <SchedulingPicker show={show}
                       setShow={setShow}
-                      onChange={(v)=>setValue(v)}
+                      onChange={(v)=> {
+                        setValue(v)
+                        console.log(v,'sss')
+                      }}
                       exceptTimes={[{hour:8,minute:20}]}
                       startTime={{hour:9,minute:30}}
                       endTime={{hour:16,minute:30}}
