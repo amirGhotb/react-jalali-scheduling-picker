@@ -31,6 +31,7 @@ const App = () => {
                       exceptDays={[4]}
                       exceptFromDate={'1400/10/06'}
                       exceptToDate={'1400/10/01'}
+                      justSelectDate={true}
     />
   </div>
 }

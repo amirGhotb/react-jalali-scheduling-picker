@@ -20,7 +20,8 @@ export default function SchedulingPicker({
   greenHelp = 'امروز',
   onChangeMonth = () => {},
   exceptFromDate = null,
-  exceptToDate = null
+  exceptToDate = null,
+  justSelectDate = false
 }) {
   moment.locale('fa')
   moment.loadPersian()
@@ -61,8 +62,13 @@ export default function SchedulingPicker({
 
   useEffect(() => {
     if (selectedDate !== null) {
-      setShowDatePicker(false)
-      setShowTimePicker(true)
+      if (justSelectDate) {
+        onChange(selectedDate)
+        setShow(false)
+      } else {
+        setShowDatePicker(false)
+        setShowTimePicker(true)
+      }
     }
   }, [selectedDate])
 
@@ -159,7 +165,7 @@ export default function SchedulingPicker({
                                   now.date.jDate(day)
                                   const m = moment().locale('fa')
                                   m.jYear(now.date.jYear())
-                                  m.jMonth(now.date.jMonth())
+                                  m.jMonth(now.date.jMonth() + 1)
                                   m.jDate(now.date.jDate())
                                   setSelectedDate(m)
                                 }}

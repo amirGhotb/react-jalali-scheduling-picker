@@ -40,6 +40,9 @@ function App() {
                         onChangeMonth={(month)=>{
                           console.log(month)
                         }}
+                        exceptFromDate={'1400/10/06'}
+                        exceptToDate={'1400/10/01'}
+                        justSelectDate={true}
       />
     </div>
   );
@@ -103,6 +106,17 @@ export default App;
     when month change in date picker section (for change holiday props)
 
     month type is integer
+
+ - **exceptFromDate** : string
+    days before input string date will be deactivated
+    For example, '1400/10/07'
+
+ - **exceptToDate** : string
+   days before input string date will be deactivated
+   For example, '1400/10/07'
+
+ - **justSelectDate** : boolean
+      just date select modal will be displayed
 
 ## License
 
